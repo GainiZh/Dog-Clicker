@@ -29,7 +29,8 @@ let model = {
   ]
 };
 
-let mainLogik = {
+// build the octopus that will communicate between the model and the views
+let octopus = {
 
   init: function() {
     // set current dog to the first dog on the list
@@ -68,7 +69,7 @@ let dogView = {
 
     // add event listener when image is clicked
     this.dogImageElem.addEventListener('click', function() {
-      mainLogik.incrementCounter();
+      octopus.incrementCounter();
     });
 
     // update the view
@@ -97,7 +98,7 @@ let dogListView = {
   render: function() {
     let dog, elem, i;
     // dogs which will be updated later
-    let dogs = mainLogik.getDogs();
+    let dogs = octopus.getDogs();
     //empty the list
     this.dogListElem.innerHTML = '';
     // loop through the dogs
@@ -109,7 +110,7 @@ let dogListView = {
 
       elem.addEventListener('click', (function(dogCopy) {
         return function() {
-          mainLogik.setCurrentDog(dogCopy);
+          octopus.setCurrentDog(dogCopy);
           dogView.render();
         };
       })(dog));
@@ -119,4 +120,4 @@ let dogListView = {
   }
 };
 
-mainLogik.init();
+octopus.init();
