@@ -78,7 +78,7 @@ let dogView = {
 
   render: function() {
     // update the DOM elements
-    let currentDog = mainLogik.getCurrentDog();
+    let currentDog = octopus.getCurrentDog();
     this.countElem.textContent = currentDog.clickCount;
     this.dogNameElem.textContent = currentDog.name;
     this.dogImageElem.src = currentDog.imgSrc;
